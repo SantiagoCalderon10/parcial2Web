@@ -17,16 +17,10 @@ CREATE DATABASE colegiodb
 
 # Los ingresos que se pueden hacer son:
 
-usuario: rector - contraseña: 1234
-usuario: docente1 - contraseña: 1234 
-usuario: docente2 - contraseña: 1234
-usuario: docente3 - contraseña: 1234
-usuario: estudiante1 - contraseña: 1234
-usuario: estudiante2 - contraseña: 1234
-usuario: estudiante3 - contraseña: 1234
-
-
-
-
-
-    
+- **usuario:** rector — **contraseña:** 1234  
+- **usuario:** docente1 — **contraseña:** 1234  
+- **usuario:** docente2 — **contraseña:** 1234  
+- **usuario:** docente3 — **contraseña:** 1234  
+- **usuario:** estudiante1 — **contraseña:** 1234  
+- **usuario:** estudiante2 — **contraseña:** 1234  
+- **usuario:** estudiante3 — **contraseña:** 1234
