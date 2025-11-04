@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Asignatura</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f3f4f6;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #0e53c7 0%, #1062f1 100%);
+        }
+
+        .card {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            background-color: #fff;
+        }
+
+        .form-label {
+            font-weight: 600;
+        }
+
+        .btn-custom {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-secondary {
+            border-radius: 25px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+    <div class="container-fluid px-4">
+        <a class="navbar-brand fw-bold" href="#">Sistema de Asignaturas</a>
+        <div class="text-white ms-auto">
+            <span th:text="'Usuario: ' + ${usuario.nombre}"></span>
+
+        </div>
+
+
+    </div>
+</nav>
+
+<div class="container">
+    <div class="card">
+        <h3 class="text-center mb-4 text-primary fw-bold">Registrar Nueva Asignatura</h3>
+
+        <form th:action="@{/asignaturas/agregar}" th:object="${asignatura}" method="post">
+
+
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre de la asignatura</label>
+                <input type="text" id="nombre" maxlength="30" class="form-control"
+                       placeholder="Ejemplo: Cálculo Integral"
+                       th:field="*{nombre}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea id="descripcion" maxlength="100" class="form-control"
+                          placeholder="Breve descripción de la asignatura"
+                          th:field="*{descripcion}" required></textarea>
+            </div>
+
+            <!-- Salón -->
+            <div class="mb-3">
+                <label for="salon" class="form-label">Salón</label>
+                <input type="number" id="salon" min="1" class="form-control"
+                       placeholder="Ejemplo: 204" th:field="*{salon}" required>
+            </div>
+
+            <!-- Horario -->
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="horaInicio" class="form-label">Hora de inicio</label>
+                    <input type="time" id="horaInicio" class="form-control" th:field="*{horaInicio}" required>
+                </div>
+                <div class="col">
+                    <label for="horaFin" class="form-label">Hora de finalización</label>
+                    <input type="time" id="horaFin" class="form-control" th:field="*{horaFin}" required>
+                </div>
+            </div>
+
+            <!-- Profesor -->
+            <div class="mb-3">
+                <label for="profesor" class="form-label">Docente encargado</label>
+                <select id="profesor" class="form-select" th:field="*{profesor.id}" required>
+                    <option th:each="prof : ${profesores}"
+                            th:value="${prof.id}"
+                            th:text="${prof.nombre} + ' ' + ${prof.apellido}">
+                    </option>
+                </select>
+            </div>
+
+            <!-- Botones -->
+            <div class="d-flex justify-content-between">
+                <a href="/asignaturas" class="btn btn-secondary px-4">Volver</a>
+                <button type="submit" class="btn btn-custom">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
