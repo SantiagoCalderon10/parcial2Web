@@ -72,6 +72,15 @@ public class DataInitializer {
 
                 }
 
+                if (usuarioRepositorio.findByNombre("docente4").isEmpty()) {
+                    Usuario profesor = new Usuario("docente4",passwordEncoder.encode("1234"),Set.of(docenteRole));
+                    usuarioRepositorio.save(profesor);
+
+                    profesorRepositorio.save(new Profesor("Matilde", "Montealegre", profesor));
+
+
+                }
+
 
 
             };

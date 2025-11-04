@@ -53,9 +53,12 @@
             <td th:text="${asig.salon}"></td>
             <td th:text="${asig.horaInicio}"></td>
             <td th:text="${asig.horaFin}"></td>
-            <td th:text="${asig.profesor.nombre}"></td>
-            <td sec:authorize="hasRole('DOCENTE')">
+            <td th:text="${asig.profesor.toString()}"></td>
+            <td th:if="${asignaturasProfesor.contains(asig)} "  sec:authorize="hasRole('DOCENTE')">
                 <a th:href="@{/asignaturas/editar/{id}(id = ${asig.id})}" class ="btn btn-warning btn-sm">Editar Horario</a>
+            </td>
+            <td th:unless="${asignaturasProfesor.contains(asig)} "  sec:authorize="hasRole('DOCENTE')">
+                No permitido
             </td>
             <td sec:authorize="hasRole('RECTOR')">
                 <a th:href="@{/asignaturas/editar/{id}(id=${asig.id})}"

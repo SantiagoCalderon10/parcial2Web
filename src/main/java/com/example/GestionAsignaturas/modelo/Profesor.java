@@ -66,4 +66,9 @@ public class Profesor {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+
+    @Override
+    public String toString() {
+        return nombre + " " + apellido;
+    }
 }

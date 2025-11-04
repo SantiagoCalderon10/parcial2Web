@@ -14,7 +14,7 @@ public class SwaggerConfig {
     public OpenAPI tareaApiOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("API de Gestión de Asignaturas")
+                        .title("Gestion Asignaturas MVC")
                         .description("Documentación CRUD de asignaturas")
                         .version("1.0.0"));
     }
