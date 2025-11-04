@@ -24,13 +24,11 @@ import java.util.Optional;
 public class PrincipalControlador {
 
     private final AsignaturaServicio asignaturaServicio;
-    private UserDetailsServiceImpl userDetailsService;
     private  ProfesorServicio profesorServicio;
 
     private UsuarioServicio usuarioServicio;
 
     public PrincipalControlador(UserDetailsServiceImpl userDetailsService, ProfesorServicio profesorServicio, UsuarioServicio usuarioServicio, AsignaturaServicio asignaturaServicio) {
-        this.userDetailsService = userDetailsService;
         this.usuarioServicio = usuarioServicio;
         this.asignaturaServicio = asignaturaServicio;
         this.profesorServicio = profesorServicio;
